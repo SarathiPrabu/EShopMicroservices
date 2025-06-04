@@ -10,3 +10,4 @@
 /Users/sarathiprabumohan/Library/CloudStorage/OneDrive-SharedLibraries-onedrive/Desktop/Learning/MyProjects/RiderProjects/EShopMicroservices/src/BuildingBlocks/BuildingBlocks/obj/Debug/net8.0/refint/BuildingBlocks.dll
 /Users/sarathiprabumohan/Library/CloudStorage/OneDrive-SharedLibraries-onedrive/Desktop/Learning/MyProjects/RiderProjects/EShopMicroservices/src/BuildingBlocks/BuildingBlocks/obj/Debug/net8.0/BuildingBlocks.pdb
 /Users/sarathiprabumohan/Library/CloudStorage/OneDrive-SharedLibraries-onedrive/Desktop/Learning/MyProjects/RiderProjects/EShopMicroservices/src/BuildingBlocks/BuildingBlocks/obj/Debug/net8.0/ref/BuildingBlocks.dll
+/Users/sarathiprabumohan/Library/CloudStorage/OneDrive-SharedLibraries-onedrive/Desktop/Learning/MyProjects/RiderProjects/EShopMicroservices/src/BuildingBlocks/BuildingBlocks/obj/Debug/net8.0/BuildingBlocks.sourcelink.json

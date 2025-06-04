@@ -2,9 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{419947C0-FAAD-4367-AC2A-1ACB84162361}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catelog", "Catelog", "{C8A1BEB5-9B83-4A06-89C8-73C7746704D4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{C8A1BEB5-9B83-4A06-89C8-73C7746704D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catelog.API", "Catelog.API\Catelog.API.csproj", "{4140CF0C-88F0-4442-BF0E-AFA6578815BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{4140CF0C-88F0-4442-BF0E-AFA6578815BE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{1671548F-FD34-4FB7-9495-7F393005E1DE}"
 EndProject
