@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{419947C0-FAAD-4367-AC2A-1ACB84162361}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catelog", "Catelog", "{C8A1BEB5-9B83-4A06-89C8-73C7746704D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catelog.API", "Catelog.API\Catelog.API.csproj", "{4140CF0C-88F0-4442-BF0E-AFA6578815BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{1671548F-FD34-4FB7-9495-7F393005E1DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj", "{B8901A1D-C758-4834-B3A3-F18A986619B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7DCD2306-9D22-48CB-B8FB-8B3A126ED65A}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4140CF0C-88F0-4442-BF0E-AFA6578815BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4140CF0C-88F0-4442-BF0E-AFA6578815BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4140CF0C-88F0-4442-BF0E-AFA6578815BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4140CF0C-88F0-4442-BF0E-AFA6578815BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8901A1D-C758-4834-B3A3-F18A986619B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8901A1D-C758-4834-B3A3-F18A986619B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8901A1D-C758-4834-B3A3-F18A986619B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8901A1D-C758-4834-B3A3-F18A986619B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8A1BEB5-9B83-4A06-89C8-73C7746704D4} = {419947C0-FAAD-4367-AC2A-1ACB84162361}
+		{4140CF0C-88F0-4442-BF0E-AFA6578815BE} = {C8A1BEB5-9B83-4A06-89C8-73C7746704D4}
+		{B8901A1D-C758-4834-B3A3-F18A986619B9} = {1671548F-FD34-4FB7-9495-7F393005E1DE}
+	EndGlobalSection
+EndGlobal
