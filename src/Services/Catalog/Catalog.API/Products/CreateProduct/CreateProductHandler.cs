@@ -1,13 +1,12 @@
-
 namespace Catalog.API.Products.CreateProduct;
 
 public record CreateProductCommand(
-    Guid id,
-    string name,
-    List<string> categories,
-    string description,
-    string imageFiles,
-    decimal price
+    Guid Id, 
+    string Name,
+    List<string> Categories,
+    string Description,
+    string ImageFiles,
+    decimal Price 
 ): ICommand<CreateProductResult>;
 
 public record CreateProductResult(Guid Id);
@@ -21,15 +20,13 @@ internal class CreateProductCommandHandler(IDocumentSession session)
 
         var product = new Product
         {
-            Name = command.name,
-            Categories = command.categories,
-            Description = command.description,
-            ImageFiles = command.imageFiles,
-            Price = command.price
+            Name = command.Name,
+            Categories = command.Categories,
+            Description = command.Description,
+            ImageFiles = command.ImageFiles,
+            Price = command.Price
             
         };
-        // TODO
-        // Save to the DB
         session.Store(product);
         await session.SaveChangesAsync(cancellationToken);
         

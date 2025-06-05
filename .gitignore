@@ -1,3 +1,13 @@
-/.idea/
-/src/.idea/
-/src/.vs/
+# macOS system files
+.DS_Store
+
+# Rider / VS / build folders everywhere
+bin/
+obj/
+
+# Visual Studio, Rider, IDE junk
+.idea/
+.vs/
+src/.idea/
+src/.vs/
+

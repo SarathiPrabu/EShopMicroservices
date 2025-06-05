@@ -1,13 +1,14 @@
 namespace Catalog.API.Products.CreateProduct;
 
-public record CreateProductRequest(
-    Guid id,
-    string name,
-    List<string> categories,
-    string description,
-    string imageFiles,
-    decimal price
-);
+public record CreateProductRequest
+{
+    public Guid Id { get; set; }
+    public string Name { get; set; } = default!;
+    public List<string> Categories { get; set; } = new();
+    public string Description { get; set; } = default!;
+    public string ImageFiles { get; set; } = default!;
+    public decimal Price { get; set; }
+}
 
 public record CreateProductResponse(Guid id);
 
@@ -28,7 +29,5 @@ public class CreateProductEndpoint : ICarterModule
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Create a new product - Summary")
             .WithDescription("Create a new product - Description");
-
-        app.MapGet("/", () => "Hello World!");
     }
 }
