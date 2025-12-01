@@ -10,11 +10,11 @@ public class GetProductsEndpoint : ICarterModule
         app.MapGet("/products",async (ISender sender) =>
         {
             var result = await sender.Send(new GetProductsQuery());
-            var resonse = result.Adapt<GetProductsResponse>();
-            return Results.Ok(resonse);
+            var response = result.Adapt<GetProductsResponse>();
+            return Results.Ok(response);
         })
             .WithName("GetProducts")
-            .Produces<GetProductsResponse>(StatusCodes.Status200OK)
+            .Produces<GetProductsResponse>()
             .Produces(StatusCodes.Status400BadRequest)
             .WithSummary("Get Products")
             .WithDescription("Get Products");

@@ -10,7 +10,7 @@ public record CreateProductRequest
     public decimal Price { get; set; }
 }
 
-public record CreateProductResponse(Guid id);
+public record CreateProductResponse(Guid Id);
 
 public class CreateProductEndpoint : ICarterModule
 {
@@ -20,9 +20,9 @@ public class CreateProductEndpoint : ICarterModule
             {
                 var command = request.Adapt<CreateProductCommand>();
                 var result = await sender.Send(command);
-                var resonse = result.Adapt<CreateProductResponse>();
+                var response = result.Adapt<CreateProductResponse>();
 
-                return Results.Created($"/products/{resonse.id}", resonse);
+                return Results.Created($"/products/{response.Id}", response);
             })
             .WithName("CreateProduct - Name")
             .Produces<CreateProductResponse>(StatusCodes.Status201Created)
