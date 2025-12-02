@@ -2,7 +2,7 @@ namespace Catalog.API.Products.CreateProduct;
 
 public record CreateProductRequest
 {
-    public Guid Id { get; set; }
+    // public Guid Id { get; set; } -> Server generates this
     public string Name { get; set; } = default!;
     public List<string> Categories { get; set; } = new();
     public string Description { get; set; } = default!;
