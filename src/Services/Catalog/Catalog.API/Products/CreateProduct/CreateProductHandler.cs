@@ -15,25 +15,22 @@ public class CreateProductCommandValidator : AbstractValidator<CreateProductComm
 {
     public CreateProductCommandValidator()
     {
-        RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required.");
+        RuleFor(x => x.Name)
+            .NotEmpty().WithMessage("Name is required.")
+            .Length(2, 150).WithMessage("Name must be between 2 and 150 characters");;
         RuleFor(x => x.Categories).NotEmpty().WithMessage("Categories is required.");
         RuleFor(x => x.ImageFiles).NotEmpty().WithMessage("ImageFiles is required.");
         RuleFor(x => x.Price).GreaterThan(0).WithMessage("Price must be greater than 0.");
     }
 }
 internal class CreateProductCommandHandler
-    (IDocumentSession session, IValidator<CreateProductCommand> validator)
+    (IDocumentSession session, ILogger<CreateProductCommandHandler> logger)
     : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
+        logger.LogInformation("CreateProductCommandHandler.Handle called with {@command}", command);
         // Business logic to create a product
-        var result = await validator.ValidateAsync(command, cancellationToken);
-        var errors = result.Errors.Select(x => x.ErrorMessage).ToList();
-        if (errors.Any())
-        {
-            throw new ValidationException(errors.FirstOrDefault());
-        }
         var product = new Product
         {
             Id = Guid.NewGuid(),
