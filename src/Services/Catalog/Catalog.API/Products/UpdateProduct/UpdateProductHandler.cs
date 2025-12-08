@@ -28,10 +28,11 @@ internal class UpdateProductCommandHandler(IDocumentSession session, ILogger<Upd
 {
     public async Task<UpdateProductResult> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
     {
+        logger.LogInformation("UpdateProductCommandHandler.Handle: called with {@command}", command);
         var product = await session.LoadAsync<Product>(command.Id, cancellationToken);
         if (product is null)
         {
-            throw new Exception("Product not found");
+            throw new ProductNotFoundException(command.Id);
         }
         product.Name = command.Name;
         product.Categories = command.Categories;
