@@ -5,7 +5,7 @@ public record UpdateProductCommand(
     string Name,
     List<string> Categories,
     string Description,
-    string ImageFile,
+    string ImageFiles,
     decimal Price) :
     ICommand<UpdateProductResult>;
 public record UpdateProductResult(bool IsSuccess);
@@ -23,12 +23,11 @@ public class UpdateProductCommandValidator : AbstractValidator<UpdateProductComm
             .GreaterThan(0).WithMessage("Price must be greater than 0");
     }
 }
-internal class UpdateProductCommandHandler(IDocumentSession session, ILogger<UpdateProductCommandHandler> logger)
+internal class UpdateProductCommandHandler(IDocumentSession session)
     : ICommandHandler<UpdateProductCommand, UpdateProductResult>
 {
     public async Task<UpdateProductResult> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
     {
-        logger.LogInformation("UpdateProductCommandHandler.Handle: called with {@command}", command);
         var product = await session.LoadAsync<Product>(command.Id, cancellationToken);
         if (product is null)
         {
@@ -37,7 +36,7 @@ internal class UpdateProductCommandHandler(IDocumentSession session, ILogger<Upd
         product.Name = command.Name;
         product.Categories = command.Categories;
         product.Description = command.Description;
-        product.ImageFiles = command.ImageFile;
+        product.ImageFiles = command.ImageFiles;
         product.Price = command.Price;
         session.Update(product);
         await session.SaveChangesAsync(cancellationToken);
