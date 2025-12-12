@@ -1,6 +1,4 @@
-﻿version: "3.9"
-
-services:
+﻿services:
   catalogdb:
     image: postgres:16
     container_name: catalogdb
@@ -22,6 +20,28 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  catalog.api:
+    image: catalogapi
+    build:
+      context: .
+      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+    container_name: catalog.api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: 8080
+      ConnectionStrings__Database: >
+        Server=catalogdb;
+        Port=5432;
+        Database=catalogdb;
+        User Id=postgres;
+        Password=postgres;
+        Include Error Detail=true
+    depends_on:
+      catalogdb:
+        condition: service_healthy
+    ports:
+      - "6000:8080"
 
 volumes:
   postgres_catalog:
+
