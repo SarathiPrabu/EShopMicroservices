@@ -18,7 +18,7 @@ builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 var app = builder.Build();
 
-// Add to the middleware pipeline
+// Configure HTTP request pipeline
 app.MapCarter();
 app.UseExceptionHandler(options => { });
 app.Run();

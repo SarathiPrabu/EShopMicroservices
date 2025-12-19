@@ -3,24 +3,21 @@
     image: postgres:16
     container_name: catalogdb
     restart: always
-
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: CatalogDb
-
+      POSTGRES_DB: catalogdb
     ports:
       - "5432:5432"
-
     volumes:
       - postgres_catalog:/var/lib/postgresql/data
-
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
       timeout: 5s
-      retries: 5
-  catalog.api:
+      retries: 5    
+      
+  catalogapi:
     image: catalogapi
     build:
       context: .
@@ -41,7 +38,25 @@
         condition: service_healthy
     ports:
       - "6000:8080"
-
+  
+  basketdb:
+    image: postgres:16
+    container_name: basketdb
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: BasketDb
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_basket:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 volumes:
   postgres_catalog:
+  postgres_basket:
 
