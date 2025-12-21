@@ -16,7 +16,36 @@
       interval: 10s
       timeout: 5s
       retries: 5    
+  basketdb:
+    image: postgres:16
+    container_name: basketdb
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: BasketDb
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_basket:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
       
+  distributedcache:
+    image: redis
+    container_name: distributedcache
+    restart: always
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  
   catalogapi:
     image: catalogapi
     build:
@@ -38,24 +67,31 @@
         condition: service_healthy
     ports:
       - "6000:8080"
-  
-  basketdb:
-    image: postgres:16
-    container_name: basketdb
-    restart: always
+  basketapi:
+    image: basketapi
+    build:
+      context: .
+      dockerfile: Services/Basket/Basket.API/Dockerfile
+    container_name: basket.api
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: BasketDb
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: 8080
+      ConnectionStrings__Database: >
+        Server=basketdb;
+        Port=5432;
+        Database=BasketDb;
+        User Id=postgres;
+        Password=postgres;
+        Include Error Detail=true
+      ConnectionStrings__Redis: distributedcache:6379
+        
+    depends_on:
+      basketdb:
+        condition: service_healthy
+      distributedcache:
+        condition: service_healthy
     ports:
-      - "5433:5432"
-    volumes:
-      - postgres_basket:/var/lib/postgresql/data
-    healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      - "6001:8080"
 volumes:
   postgres_catalog:
   postgres_basket:
