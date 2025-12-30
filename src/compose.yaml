@@ -84,7 +84,8 @@
         Password=postgres;
         Include Error Detail=true
       ConnectionStrings__Redis: distributedcache:6379
-        
+      GrpcSettings__DiscountUrl: https://discount.grpc:8081
+      
     depends_on:
       basketdb:
         condition: service_healthy
@@ -92,7 +93,27 @@
         condition: service_healthy
     ports:
       - "6001:8080"
+  discount.grpc:
+    image: discount_grpc
+    build:
+      context: .
+      dockerfile: Services/Discount/Discount.Grpc/Dockerfile
+    container_name: discount.grpc
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: 8080
+      ASPNETCORE_HTTPS_PORTS: 8081
+      ASPNETCORE_Kestrel__Certificates__Default__Path: /https/aspnetapp.pfx
+      ASPNETCORE_Kestrel__Certificates__Default__Password: ""
+      ConnectionStrings__Database: Data Source=discount.db
+    ports:
+      - "6002:8080"
+      - "6062:8081"
+    volumes:
+      - ~/.aspnet/https:/https:ro
+      - sqlite_discount:/var/lib/sqlite/data
 volumes:
   postgres_catalog:
   postgres_basket:
+  sqlite_discount:
 
