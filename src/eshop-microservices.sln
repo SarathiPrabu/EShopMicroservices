@@ -34,7 +34,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Obj", "Obj", "{9739862A-CB5
 		Services\Discount\Discount.Grpc\obj\project.assets.json = Services\Discount\Discount.Grpc\obj\project.assets.json
 		Services\Discount\Discount.Grpc\obj\Debug\.DS_Store = Services\Discount\Discount.Grpc\obj\Debug\.DS_Store
 		Services\Discount\Discount.Grpc\obj\Debug\net8.0\Discount.Grpc.GeneratedMSBuildEditorConfig.editorconfig = Services\Discount\Discount.Grpc\obj\Debug\net8.0\Discount.Grpc.GeneratedMSBuildEditorConfig.editorconfig
-		Services\Discount\Discount.Grpc\obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs = Services\Discount\Discount.Grpc\obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+		Services\Discount\Discount.Grpc\obj\Debug\net8.0\.NETCoreApp,Version = v8.0.AssemblyAttributes.cs = Services\Discount\Discount.Grpc\obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
 		Services\Discount\Discount.Grpc\obj\Debug\net8.0\Discount.Grpc.csproj.CoreCompileInputs.cache = Services\Discount\Discount.Grpc\obj\Debug\net8.0\Discount.Grpc.csproj.CoreCompileInputs.cache
 		Services\Discount\Discount.Grpc\obj\Debug\net8.0\staticwebassets.build.json = Services\Discount\Discount.Grpc\obj\Debug\net8.0\staticwebassets.build.json
 		Services\Discount\Discount.Grpc\obj\Debug\net8.0\ref\Discount.Grpc.dll = Services\Discount\Discount.Grpc\obj\Debug\net8.0\ref\Discount.Grpc.dll
@@ -67,6 +67,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Obj", "Obj", "{9739862A-CB5
 		Services\Discount\Discount.Grpc\obj\Discount.Grpc.csproj.nuget.g.targets = Services\Discount\Discount.Grpc\obj\Discount.Grpc.csproj.nuget.g.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ordering", "Ordering", "{D1712586-A1BA-4C5A-BF33-AC0075434EF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Domain", "Services\Ordering\Ordering.Domain\Ordering.Domain.csproj", "{99C68D92-ECF5-432A-B0E7-AEEBA6F86AF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Infrastructure", "Services\Ordering\Ordering.Infrastructure\Ordering.Infrastructure.csproj", "{BCE8AA08-D3C5-47B3-A9F0-7703BB4D5BF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Application", "Services\Ordering\Ordering.Application\Ordering.Application.csproj", "{0DE38291-E29C-4D2F-9C04-8D540B8E31DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.API", "Services\Ordering\Ordering.API\Ordering.API.csproj", "{92CF8DFB-667B-42D9-9DD8-82A0BC05CE8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +99,22 @@ Global
 		{0BE66BE8-01DE-4469-8D1F-6FAD171D21AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BE66BE8-01DE-4469-8D1F-6FAD171D21AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BE66BE8-01DE-4469-8D1F-6FAD171D21AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99C68D92-ECF5-432A-B0E7-AEEBA6F86AF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99C68D92-ECF5-432A-B0E7-AEEBA6F86AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99C68D92-ECF5-432A-B0E7-AEEBA6F86AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99C68D92-ECF5-432A-B0E7-AEEBA6F86AF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCE8AA08-D3C5-47B3-A9F0-7703BB4D5BF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE8AA08-D3C5-47B3-A9F0-7703BB4D5BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE8AA08-D3C5-47B3-A9F0-7703BB4D5BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE8AA08-D3C5-47B3-A9F0-7703BB4D5BF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DE38291-E29C-4D2F-9C04-8D540B8E31DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DE38291-E29C-4D2F-9C04-8D540B8E31DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DE38291-E29C-4D2F-9C04-8D540B8E31DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DE38291-E29C-4D2F-9C04-8D540B8E31DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92CF8DFB-667B-42D9-9DD8-82A0BC05CE8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92CF8DFB-667B-42D9-9DD8-82A0BC05CE8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92CF8DFB-667B-42D9-9DD8-82A0BC05CE8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92CF8DFB-667B-42D9-9DD8-82A0BC05CE8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C8A1BEB5-9B83-4A06-89C8-73C7746704D4} = {419947C0-FAAD-4367-AC2A-1ACB84162361}
@@ -99,5 +125,10 @@ Global
 		{5F3FF944-B18D-44E7-8549-05CCFD76A535} = {419947C0-FAAD-4367-AC2A-1ACB84162361}
 		{0BE66BE8-01DE-4469-8D1F-6FAD171D21AF} = {5F3FF944-B18D-44E7-8549-05CCFD76A535}
 		{9739862A-CB5C-4054-AFE2-3D1E49D6CC4F} = {5F3FF944-B18D-44E7-8549-05CCFD76A535}
+		{D1712586-A1BA-4C5A-BF33-AC0075434EF7} = {419947C0-FAAD-4367-AC2A-1ACB84162361}
+		{99C68D92-ECF5-432A-B0E7-AEEBA6F86AF1} = {D1712586-A1BA-4C5A-BF33-AC0075434EF7}
+		{BCE8AA08-D3C5-47B3-A9F0-7703BB4D5BF9} = {D1712586-A1BA-4C5A-BF33-AC0075434EF7}
+		{0DE38291-E29C-4D2F-9C04-8D540B8E31DC} = {D1712586-A1BA-4C5A-BF33-AC0075434EF7}
+		{92CF8DFB-667B-42D9-9DD8-82A0BC05CE8B} = {D1712586-A1BA-4C5A-BF33-AC0075434EF7}
 	EndGlobalSection
 EndGlobal
