@@ -5,6 +5,9 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <DisableProtobufGeneration Condition="'$(DOTNET_RUNNING_IN_CONTAINER)' == 'true'">
+            true
+        </DisableProtobufGeneration>
     </PropertyGroup>
 
     <ItemGroup>
@@ -19,10 +22,7 @@
         <PackageReference Include="Google.Protobuf" Version="3.33.2"/>
         <PackageReference Include="Grpc.Net.Client" Version="2.76.0"/>
         <PackageReference Include="Grpc.Net.ClientFactory" Version="2.76.0" />
-        <PackageReference Include="Grpc.Tools" Version="2.76.0">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
+        <PackageReference Include="Grpc.Tools" Version="2.76.0" PrivateAssets="All" />
         <PackageReference Include="Marten" Version="8.16.1"/>
         <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="10.0.1"/>
         <PackageReference Include="Scrutor" Version="7.0.0"/>
@@ -30,14 +30,13 @@
     <ItemGroup>
         <Folder Include="Exceptions\"/>
     </ItemGroup>
-    <ItemGroup>
+    <ItemGroup Condition="'$(DisableProtobufGeneration)' != 'true'">
         <Protobuf
                 Include="..\Discount.Grpc\Protos\discount.proto"
                 GrpcServices="Client">
             <Link>Protos\discount.proto</Link>
         </Protobuf>
     </ItemGroup>
-
     <ItemGroup>
         <Content Include="..\..\..\.dockerignore">
             <Link>.dockerignore</Link>
