@@ -29,14 +29,16 @@
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Exceptions\"/>
+        <Folder Include="GrpcClients\" />
     </ItemGroup>
-    <ItemGroup Condition="'$(DisableProtobufGeneration)' != 'true'">
+    <ItemGroup Condition="'$(EnableProtobufGeneration)' == 'true'">
         <Protobuf
                 Include="..\Discount.Grpc\Protos\discount.proto"
-                GrpcServices="Client">
-            <Link>Protos\discount.proto</Link>
-        </Protobuf>
+                GrpcServices="Client"
+                OutputDir="GrpcClients"
+                CompileOutputs="false" />
     </ItemGroup>
+
     <ItemGroup>
         <Content Include="..\..\..\.dockerignore">
             <Link>.dockerignore</Link>
