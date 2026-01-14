@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "0289cd6b-0d2f-4e94-97d5-3d2453b7396a",
+		"name": "Basket.API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26065212"
+	},
+	"item": [
+		{
+			"name": "Store Basket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Cart\":\n    {\n        \"UserName\": \"sarathi\",\n        \"Items\": [\n            {\n                \"ProductId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n                \"ProductName\": \"iPhone 15 Pro\",\n                \"Color\": \"Black\",\n                \"Price\": 999.99,\n                \"Quantity\": 1\n            },\n            {\n                \"ProductId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n                \"ProductName\": \"One Plus\",\n                \"Color\": \"Black\",\n                \"Price\": 999.99,\n                \"Quantity\": 1\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basket_url}}/basket",
+					"host": [
+						"{{basket_url}}"
+					],
+					"path": [
+						"basket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBasket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{basket_url}}/basket/sarathi",
+					"host": [
+						"{{basket_url}}"
+					],
+					"path": [
+						"basket",
+						"sarathi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Basket",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Cart\":\n    {\n        \"UserName\": \"sarathi\",\n        \"Items\": [\n            {\n                \"ProductId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n                \"ProductName\": \"iPhone 15 Pro\",\n                \"Color\": \"Black\",\n                \"Price\": 999.99,\n                \"Quantity\": 1\n            },\n            {\n                \"ProductId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n                \"ProductName\": \"iPhone 15 Pro\",\n                \"Color\": \"Black\",\n                \"Price\": 999.99,\n                \"Quantity\": 1\n            }\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "{{basket_url}}/basket/user1",
+					"host": [
+						"{{basket_url}}"
+					],
+					"path": [
+						"basket",
+						"user1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Cart\":\n    {\n        \"UserName\": \"sarathi\",\n        \"Items\": [\n            {\n                \"ProductId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n                \"ProductName\": \"iPhone 15 Pro\",\n                \"Color\": \"Black\",\n                \"Price\": 999.99,\n                \"Quantity\": 1\n            },\n            {\n                \"ProductId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n                \"ProductName\": \"iPhone 15 Pro\",\n                \"Color\": \"Black\",\n                \"Price\": 999.99,\n                \"Quantity\": 1\n            }\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "{{basket_url}}/health",
+					"host": [
+						"{{basket_url}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

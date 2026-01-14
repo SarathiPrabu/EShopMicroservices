@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "9cc19c6f-b024-452a-ab96-0e31b81c2f9b",
+		"name": "Catalog.API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26065212"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "CreateProduct",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let body = pm.response.json();",
+									"pm.environment.set(\"product_id\", body.id);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"One Plus 16\",\n  \"Categories\": [\"Electronics\", \"Smartphones\"],\n  \"Description\": \"Latest flagship device with cutting-edge camera and latest chip.\",\n  \"ImageFiles\": \"oneplus.jpeg\",\n  \"Price\": 1499.99\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{catalog_url}}/products",
+							"host": [
+								"{{catalog_url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProducts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{catalog_url}}/products?PageNumber=1&PageSize=5",
+							"host": [
+								"{{catalog_url}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "PageNumber",
+									"value": "1"
+								},
+								{
+									"key": "PageSize",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{catalog_url}}/products/019adb93-0fab-44f0-9103-bfed19104d00",
+							"host": [
+								"{{catalog_url}}"
+							],
+							"path": [
+								"products",
+								"019adb93-0fab-44f0-9103-bfed19104d00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductByCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{catalog_url}}/products/category/Electronics",
+							"host": [
+								"{{catalog_url}}"
+							],
+							"path": [
+								"products",
+								"category",
+								"Electronics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{catalog_url}}/products/{{product_id}}",
+							"host": [
+								"{{catalog_url}}"
+							],
+							"path": [
+								"products",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProduct",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"019adb9c-3032-4128-b49e-bd8f11b299a1\",\n    \"name\": \"Apple iPhone 17 ProMax\",\n    \"categories\": [\n        \"Electronics\",\n        \"Smartphones\"\n    ],\n    \"description\": \"Latest flagship device with cutting-edge camera and A19 chip.\",\n    \"imageFiles\": \"image1.jpeg\",\n    \"price\": 1099.99\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{catalog_url}}/products",
+							"host": [
+								"{{catalog_url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProduct1",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"019adb9c-3032-4128-b49e-bd8f11b299a1\",\n    \"name\": \"Apple iPhone 17 ProMax\",\n    \"categories\": [\n        \"Electronics\",\n        \"Smartphones\"\n    ],\n    \"description\": \"Latest flagship device with cutting-edge camera and A19 chip.\",\n    \"ImageFiles\": \"image2.jpeg\",\n    \"price\": 1099.99\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{catalog_url}}/products",
+							"host": [
+								"{{catalog_url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{catalog_url}}/health",
+							"host": [
+								"{{catalog_url}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
