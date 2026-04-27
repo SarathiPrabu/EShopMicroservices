@@ -9,7 +9,6 @@ public static class Extentions
         using var scope = app.ApplicationServices.CreateScope();
         using var dbContext = scope.ServiceProvider.GetRequiredService<DiscountContext>();
         dbContext.Database.Migrate();
-
         return app;
     }
 }
