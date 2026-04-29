@@ -9,9 +9,11 @@ public static class DependencyInjection
     {
         var connectionString = configuration.GetConnectionString("Database");
         //// Add services to the container.
-            services.AddDbContext<ApplicationDbContext>(options =>
+        services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
+        services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
+            services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
-                options.AddInterceptors(new AuditableEntityInterceptor());
+                options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
                 options.UseSqlServer(connectionString);
             });
         // services.AddScoped<IApplicationDbContext, ApplicationDbContext>();

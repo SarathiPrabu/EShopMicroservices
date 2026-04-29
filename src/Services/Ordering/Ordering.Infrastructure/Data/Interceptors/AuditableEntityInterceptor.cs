@@ -7,17 +7,18 @@ public class AuditableEntityInterceptor : SaveChangesInterceptor
 {
     public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
     {
-        UpdateEntities(eventData.Context);
+        if (eventData.Context != null) UpdateEntities(eventData.Context);
         return base.SavingChanges(eventData, result);
     }
 
     public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result,
         CancellationToken cancellationToken = new CancellationToken())
     {
-        UpdateEntities(eventData.Context);
+        if (eventData.Context != null) UpdateEntities(eventData.Context);
         return base.SavingChangesAsync(eventData, result, cancellationToken);
     }
-    public void UpdateEntities(DbContext context)
+
+    private void UpdateEntities(DbContext? context)
     {
         if (context == null)
         {
